@@ -17,7 +17,7 @@ type MainCard struct {
 
 // SubCard describes cards lower on the page
 type SubCard struct {
-	Title, SubTitle, Body string
+	Title, SubTitle, SubTitle2, Body, Tags string
 }
 
 // PersonPageResponse is the response to a request for an individual user
@@ -48,18 +48,18 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println("person", person)
 	page.PageTitle = person.Name
-	page.Person.Title = person.Name + " - " + person.Gender
+	page.Person.Title = "Name: " + person.Name
 	page.Person.Body1 = "Born: " + person.BirthYear
-	page.Person.Body2 = person.Gender
-	page.Person.Body3 = person.Height + " CM"
-	page.Person.Body4 = person.Mass + " KG"
-	page.Person.Body5 = person.EyeColor + " eyes & " + person.HairColor + " hair"
+	page.Person.Body2 = "Gender: " + person.Gender
+	page.Person.Body3 = "Height: " + person.Height + " CM"
+	page.Person.Body4 = "Mass: " + person.Mass + " KG"
+	page.Person.Body5 = "Eyes: " + person.EyeColor + " eyes"
 
 	homeworld, hErr := person.GetHomeworld()
 	if hErr != nil {
 		fmt.Println(hErr.Error())
 	}
-	page.Person.SubTitle = homeworld.Name
+	page.Person.SubTitle = "Homeworld: " + homeworld.Name
 	fmt.Println("Homeworld", homeworld)
 
 	// vehicles
@@ -72,9 +72,11 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 		page.Vehicles = make([]SubCard, 0)
 		for _, vehicle := range vehicles {
 			page.Vehicles = append(page.Vehicles, SubCard{
-				Title:    vehicle.Name,
-				SubTitle: vehicle.Manufacturer + " - " + vehicle.Model,
-				Body:     "It hodls " + vehicle.Crew + " crew & " + vehicle.Passengers + " passengers",
+				Title:     "Name: " + vehicle.Name,
+				SubTitle:  "Manufacturer: " + vehicle.Manufacturer,
+				SubTitle2: "Model: " + vehicle.Model,
+				Body:      "The vehicle hodls " + vehicle.Crew + " crew & " + vehicle.Passengers + " passengers",
+				Tags:      "Tags",
 			})
 		}
 	}
@@ -89,9 +91,11 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 		page.Species = make([]SubCard, 0)
 		for _, specie := range species {
 			page.Species = append(page.Species, SubCard{
-				Title:    specie.Name,
-				SubTitle: specie.Classification + " - " + specie.Designation,
-				Body:     "They are from " + specie.Homeworld + " and speak " + specie.Language,
+				Title:     "Name: " + specie.Name,
+				SubTitle:  "Classification: " + specie.Classification,
+				SubTitle2: "Designation: " + specie.Designation,
+				Body:      "They are from " + specie.Homeworld + " and speak " + specie.Language,
+				Tags:      "Tags",
 			})
 		}
 	}
@@ -107,12 +111,14 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 		for _, ship := range starships {
 			fmt.Println("ship.Name", ship.Name)
 			page.Starships = append(page.Starships, SubCard{
-				Title:    ship.Name,
-				SubTitle: ship.Manufacturer + " - " + ship.Model,
-				Body:     "It hodls " + ship.Crew + " crew & " + ship.Passengers + " passengers",
+				Title:     "Name: " + ship.Name,
+				SubTitle:  "Manufacturer: " + ship.Manufacturer,
+				SubTitle2: "Model: " + ship.Model,
+				Body:      "The ship hodls " + ship.Crew + " crew & " + ship.Passengers + " passengers",
+				Tags:      "tags",
 			})
 		}
 	}
-	
+
 	tmpl.Execute(w, page)
 }

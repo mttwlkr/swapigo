@@ -6,7 +6,7 @@
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
 </head>
 
-<body class="h-screen bg-gradient-to-br from-orange-400 to-teal-500">
+<body class="min-h-full bg-gradient-to-br from-orange-400 to-teal-500 mb-6">
   <main class="pt-4 container mx-auto">
     <nav class="flex items-center justify-between flex-wrap p-6">
       <h1 class="text-xl font-semibold text-white py-4">SwapiGo</h1>
@@ -68,9 +68,10 @@
         <div class="px-6 py-4">
           <h1 class="font-bold text-lg text-gray-800">{{.Title}}</h1>
           <h2 class="font-bold text-md text-gray-700">{{.SubTitle}}</h2>
+          <h2 class="font-bold text-md text-gray-700">{{.SubTitle2}}</h2>
           <p class="text-sm text-gray-600">{{.Body}}</h2>
-            <span
-              class="inline-block bg-white bg-opacity-75 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#planet</span>
+            <p
+              class="inline-block bg-white bg-opacity-75 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{.Tags}}</p>
         </div>
       </div>
       <!-- end card -->
@@ -101,9 +102,10 @@
         <div class="px-6 py-4">
           <h1 class="font-bold text-lg text-gray-800">{{.Title}}</h1>
           <h2 class="font-bold text-md text-gray-700">{{.SubTitle}}</h2>
+          <h2 class="font-bold text-md text-gray-700">{{.SubTitle2}}</h2>
           <p class="text-sm text-gray-600">{{.Body}}</h2>
-            <span
-              class="inline-block bg-white bg-opacity-75 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#planet</span>
+            <p
+              class="inline-block bg-white bg-opacity-75 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{.Tags}}</p>
         </div>
       </div>
       <!-- end card -->
@@ -135,9 +137,10 @@
         <div class="px-6 py-4">
           <h1 class="font-bold text-lg text-gray-800">{{.Title}}</h1>
           <h2 class="font-bold text-md text-gray-700">{{.SubTitle}}</h2>
+          <h2 class="font-bold text-md text-gray-700">{{.SubTitle2}}</h2>
           <p class="text-sm text-gray-600">{{.Body}}</h2>
-            <span
-              class="inline-block bg-white bg-opacity-75 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#planet</span>
+            <p
+              class="inline-block bg-white bg-opacity-75 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{.Tags}}</p>
         </div>
       </div>
       <!-- end card -->
