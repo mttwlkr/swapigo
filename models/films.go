@@ -1,4 +1,4 @@
-package api
+package model
 
 // Film is a struct of a Star Wars movie
 type Film struct {

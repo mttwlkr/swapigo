@@ -1,4 +1,4 @@
-package api
+package model
 
 // Species is a creature in star wars
 type Species struct {
@@ -18,4 +18,3 @@ type Species struct {
 	Edited          string   `json:"edited"`
 	URL             string   `json:"url"`
 }
-

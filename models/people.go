@@ -1,4 +1,4 @@
-package api
+package model
 
 import (
 	// "fmt"
@@ -39,6 +39,12 @@ type PeoplePageResponse struct {
 func GetInitialPerson(url string, wg *sync.WaitGroup) (Person, error) {
 	var p Person
 	return p, lib.GetJSONwg(url, &p, wg)
+}
+
+// GetPeople fetches a page of people
+func GetPeople(url string) (PeoplePageResponse, error) {
+	var page PeoplePageResponse
+	return page, lib.GetJSON(url, page)
 }
 
 // GetHomeworld gets a persons homeworld

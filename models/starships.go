@@ -1,7 +1,7 @@
-package api
+package model
 
-// Vehicle is a star wars vehicle
-type Vehicle struct {
+// Starship is a star wars starship
+type Starship struct {
 	Name                 string   `json:"name"`
 	Model                string   `json:"model"`
 	Manufacturer         string   `json:"manufacturer"`
@@ -12,7 +12,9 @@ type Vehicle struct {
 	Passengers           string   `json:"passengers"`
 	CargoCapacity        string   `json:"cargo_capacity"`
 	Consumables          string   `json:"consumables"`
-	VehicleClass         string   `json:"vechicle_class"`
+	HyperdriveRating     string   `json:"hyperdrive_rating"`
+	MGLT                 string   `json:"MGLT"`
+	StarshipClass        string   `json:"starship_class"`
 	Pilots               []string `json:"pilots"`
 	Films                []string `json:"films"`
 	Created              string   `json:"created"`
