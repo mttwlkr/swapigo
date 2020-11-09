@@ -7,5 +7,5 @@ type MainCard struct {
 
 // SubCard describes cards lower on the page
 type SubCard struct {
-	Title, SubTitle, SubTitle2, Body, Tags string
+	Title, SubTitle, SubTitle2, Body, URL, Tags string
 }

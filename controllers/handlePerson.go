@@ -5,12 +5,11 @@ import (
 	"html/template"
 	// "log"
 	"net/http"
+	// "net/url"
 	"swapigo/lib"
 	"swapigo/models"
 	"sync"
 )
-
-var wg sync.WaitGroup
 
 // PersonPageResponse is the response to a request for an individual user
 type PersonPageResponse struct {
@@ -24,13 +23,16 @@ type PersonPageResponse struct {
 // HandlePerson handles a single get request for a person and all their associated values
 func HandlePerson(w http.ResponseWriter, r *http.Request) {
 	// get id
+	keys := r.URL.Query()["id"]
+	personID := keys[0]
 
+	var wg sync.WaitGroup
 	tmpl := template.Must(template.ParseFiles("views/detail-page.html"))
 	var page PersonPageResponse
 
 	fmt.Println("we in here")
 	wg.Add(1)
-	person, pErr := model.GetInitialPerson(lib.BaseURL+"people/1/", &wg)
+	person, pErr := model.GetInitialPerson(lib.BaseURL+"people/"+personID, &wg)
 	if pErr != nil {
 		fmt.Println(pErr.Error())
 	}
@@ -67,6 +69,7 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 				SubTitle2: "Model: " + vehicle.Model,
 				Body:      "The vehicle hodls " + vehicle.Crew + " crew & " + vehicle.Passengers + " passengers",
 				Tags:      "Tags",
+				URL:       "",
 			})
 		}
 	}
@@ -86,6 +89,7 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 				SubTitle2: "Designation: " + specie.Designation,
 				Body:      "They are from " + specie.Homeworld + " and speak " + specie.Language,
 				Tags:      "Tags",
+				URL:       "",
 			})
 		}
 	}
@@ -105,6 +109,7 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 				SubTitle:  "Manufacturer: " + ship.Manufacturer,
 				SubTitle2: "Model: " + ship.Model,
 				Body:      "The ship hodls " + ship.Crew + " crew & " + ship.Passengers + " passengers",
+				URL:       "",
 				Tags:      "tags",
 			})
 		}

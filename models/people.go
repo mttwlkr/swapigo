@@ -41,10 +41,10 @@ func GetInitialPerson(url string, wg *sync.WaitGroup) (Person, error) {
 	return p, lib.GetJSONwg(url, &p, wg)
 }
 
-// GetPeople fetches a page of people
-func GetPeople(url string) (PeoplePageResponse, error) {
+// GetInitialPeople fetches a page of people
+func GetInitialPeople(url string, wg *sync.WaitGroup) (PeoplePageResponse, error) {
 	var page PeoplePageResponse
-	return page, lib.GetJSON(url, page)
+	return page, lib.GetJSONwg(url, &page, wg)
 }
 
 // GetHomeworld gets a persons homeworld
