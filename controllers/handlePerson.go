@@ -68,7 +68,6 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 				SubTitle:  "Manufacturer: " + vehicle.Manufacturer,
 				SubTitle2: "Model: " + vehicle.Model,
 				Body:      "The vehicle hodls " + vehicle.Crew + " crew & " + vehicle.Passengers + " passengers",
-				Tags:      "Tags",
 				URL:       "",
 			})
 		}
@@ -88,7 +87,6 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 				SubTitle:  "Classification: " + specie.Classification,
 				SubTitle2: "Designation: " + specie.Designation,
 				Body:      "They are from " + specie.Homeworld + " and speak " + specie.Language,
-				Tags:      "Tags",
 				URL:       "",
 			})
 		}
@@ -110,7 +108,6 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 				SubTitle2: "Model: " + ship.Model,
 				Body:      "The ship hodls " + ship.Crew + " crew & " + ship.Passengers + " passengers",
 				URL:       "",
-				Tags:      "tags",
 			})
 		}
 	}
