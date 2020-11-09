@@ -26,9 +26,14 @@ func HandlePeople(w http.ResponseWriter, r *http.Request) {
 	var wg sync.WaitGroup
 	fmt.Println("in handlePeople")
 
-	// get page number
-	queryPageNumber := "2"
 	wg.Add(1)
+
+	queryPageNumber := "1"
+	keys := r.URL.Query()["id"]
+	if len(keys) > 0 {
+		queryPageNumber = keys[0]
+	}
+
 	peoplePage, err := model.GetInitialPeople(lib.BaseURL+"people/?page="+queryPageNumber, &wg)
 
 	if err != nil {
@@ -39,8 +44,8 @@ func HandlePeople(w http.ResponseWriter, r *http.Request) {
 	// page.PageNumber = 2
 	page.PageTitle = "People"
 	// page.PageNumber = int(queryPageNumber)
-	page.NextPage = peoplePage.Next
-	page.PreviousPage = peoplePage.Previous
+	page.NextPage = "/people?id=" + lib.GetIDFromString(peoplePage.Next)
+	page.PreviousPage = "/people?id=" + lib.GetIDFromString(peoplePage.Previous)
 
 	page.People = make([]model.SubCard, 0)
 	for _, person := range peoplePage.Results {
@@ -49,7 +54,7 @@ func HandlePeople(w http.ResponseWriter, r *http.Request) {
 			SubTitle:  "URL: " + person.URL,
 			SubTitle2: "BirthYear: " + person.BirthYear,
 			Body:      person.Name + " is a " + person.Gender + " who has " + person.EyeColor + " eyes, " + person.HairColor + " hair and weighs " + person.Mass + " kilograms",
-			URL:       "/person?id=" + lib.GetIdFromString(person.URL),
+			URL:       "/person?id=" + lib.GetIDFromString(person.URL),
 		})
 	}
 

@@ -6,7 +6,7 @@
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
 </head>
 
-<body class="min-h-full bg-gradient-to-br from-orange-400 to-teal-500 pb-6">
+<body class="min-h-screen bg-gradient-to-br from-orange-400 to-teal-500 pb-6">
   <main class="pt-4 container mx-auto">
     <nav class="flex items-center justify-between flex-wrap p-6">
       <h1 class="text-xl font-semibold text-white py-4">SwapiGo</h1>
@@ -81,7 +81,6 @@
     {{end}}
     <!-- end species -->
 
-
     <!-- begin vehicles -->
     <h1 class="text-xl text-black p-6">Vehicles</h1>
     <!-- end title -->
@@ -98,7 +97,7 @@
     <div class="grid grid-cols-3 gap-4">
       {{range .Vehicles}}
       <!-- begin card -->
-      <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white">
+      <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white hover:bg-gray-400 hover:bg-opacity-50">
         <div class="px-6 py-4">
           <h1 class="font-bold text-lg text-gray-800">{{.Title}}</h1>
           <h2 class="font-bold text-md text-gray-700">{{.SubTitle}}</h2>
@@ -133,7 +132,7 @@
     <div class="grid grid-cols-3 gap-4">
       {{range .Starships}}
       <!-- begin card -->
-      <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white">
+     <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white hover:bg-gray-400 hover:bg-opacity-50">
         <div class="px-6 py-4">
           <h1 class="font-bold text-lg text-gray-800">{{.Title}}</h1>
           <h2 class="font-bold text-md text-gray-700">{{.SubTitle}}</h2>

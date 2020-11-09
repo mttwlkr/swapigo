@@ -8,7 +8,7 @@
 
 </html>
 
-<body class="min-h-full bg-gradient-to-br from-orange-400 to-teal-500 pb-6">
+<body class="min-h-screen bg-gradient-to-br from-orange-400 to-teal-500 pb-6">
   <main class="pt-4 container mx-auto">
     <nav class="flex items-center justify-between flex-wrap p-6">
       <h1 class="text-xl font-semibold text-white py-4">SwapiGo</h1>
@@ -52,16 +52,16 @@
     <div class="grid grid-cols-3 gap-4">
       {{range .People}}
       <!-- begin card -->
-      <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white">
+      <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white hover:bg-gray-400 hover:bg-opacity-50">
         <div class="px-6 py-4">
           <a href="{{.URL}}">
-          <h1 class="font-bold text-lg text-gray-800">{{.Title}}</h1>
-          <h2 class="font-bold text-md text-gray-700">{{.SubTitle}}</h2>
-          <h2 class="font-bold text-md text-gray-700">{{.SubTitle2}}</h2>
-          <p class="text-sm text-gray-600">{{.Body}}</h2>
-          <p
-            class="inline-block bg-white bg-opacity-75 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> 
-            {{.Tags}}</p>
+            <h1 class="font-bold text-lg text-gray-800">{{.Title}}</h1>
+            <h2 class="font-bold text-md text-gray-700">{{.SubTitle}}</h2>
+            <h2 class="font-bold text-md text-gray-700">{{.SubTitle2}}</h2>
+            <p class="text-sm text-gray-600">{{.Body}}</h2>
+              <p
+                class="inline-block bg-white bg-opacity-75 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                {{.Tags}}</p>
           </a>
         </div>
       </div>
@@ -71,6 +71,19 @@
     </div>
     {{end}}
     <!-- end species -->
+
+    <div class="p-6 inline-flex w-full justify-center">
+     <a href="{{.PreviousPage}}">
+      <h1 class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l">
+        Prev
+      </h1>
+    </a>
+    <a href="{{.NextPage}}">
+      <h1 class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r ml-1">
+        Next
+      </h1>
+    </a>
+    </div>
   </main>
 </body>
 
