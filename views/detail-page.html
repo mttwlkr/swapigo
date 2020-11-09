@@ -6,7 +6,7 @@
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
 </head>
 
-<body class="min-h-screen bg-gradient-to-br from-orange-400 to-teal-500 pb-6">
+<body class="min-h-screen bg-gradient-to-br from-orange-400 to-teal-500 pb-8">
   <main class="pt-4 container mx-auto">
     <nav class="flex items-center justify-between flex-wrap p-6">
       <h1 class="text-xl font-semibold text-white py-4">SwapiGo</h1>
@@ -34,6 +34,7 @@
       </div>
     </nav>
     <!-- begin main -->
+    <h1 class="text-lg text-white pt-6 pl-6 pb-2">Person</h1>
     <div class="py-8 rounded overflow-hidden shadow-lg bg-opacity-50 bg-white text-center">
       <div class="inline-block text-left">
         <h1 class="font-bold text-xl text-gray-800">Name: {{.Person.Title}}</h1>
@@ -49,17 +50,17 @@
     <!-- end main -->
 
     <!-- begin species -->
-    <h1 class="text-xl text-black p-6">Species</h1>
     <!-- end title -->
     <!-- begin grid -->
     {{if not .Species }}
-    <div class="grid grid-rows-1"></div>
+    <div class="grid grid-rows-1 p-8"></div>
     <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white p-6 text-center">
       <h1 class="font-bold text-lg text-gray-800">No Species!</h1>
     </div>
     </div>
     <!-- end grid -->
     {{else}}
+    <h1 class="text-lg text-white pt-6 pl-6 pb-2">Species</h1>
     <!-- begin grid -->
     <div class="grid grid-cols-3 gap-4">
       {{range .Species}}
@@ -82,11 +83,10 @@
     <!-- end species -->
 
     <!-- begin vehicles -->
-    <h1 class="text-xl text-black p-6">Vehicles</h1>
     <!-- end title -->
     <!-- begin grid -->
     {{if not .Vehicles }}
-    <div class="grid grid-rows-1"></div>
+    <div class="grid grid-rows-1 p-8"></div>
     <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white p-6 text-center">
       <h1 class="font-bold text-lg text-gray-800">No Vehicles!</h1>
     </div>
@@ -94,6 +94,7 @@
     <!-- end grid -->
     {{else}}
     <!-- begin grid -->
+        <h1 class="text-lg text-white pt-6 pl-6 pb-2">Vehicles</h1>
     <div class="grid grid-cols-3 gap-4">
       {{range .Vehicles}}
       <!-- begin card -->
@@ -117,11 +118,11 @@
 
 
     <!-- begin Starships -->
-    <h1 class="text-xl text-black p-6">Starships</h1>
+
     <!-- end title -->
     <!-- begin grid -->
     {{if not .Starships }}
-    <div class="grid grid-rows-1"></div>
+    <div class="grid grid-rows-1 p-8"></div>
     <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white p-6 text-center">
       <h1 class="font-bold text-lg text-gray-800">No Starships!</h1>
     </div>
@@ -129,6 +130,7 @@
     <!-- end grid -->
     {{else}}
     <!-- begin grid -->
+    <h1 class="text-lg text-white pt-6 pl-6 pb-2">Starships</h1>
     <div class="grid grid-cols-3 gap-4">
       {{range .Starships}}
       <!-- begin card -->
