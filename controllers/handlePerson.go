@@ -29,7 +29,7 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 	wg.Wait()
 
 	fmt.Println("person", person)
-	page.PageTitle = person.Name
+	page.PageTitle = "Person"
 	page.MainCard.Title = "Name: " + person.Name
 	page.MainCard.Body1 = "Born: " + person.BirthYear
 	page.MainCard.Body2 = "Gender: " + person.Gender
@@ -61,7 +61,7 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	if len(person.SubCard2) > 0 {
+	if len(person.Species) > 0 {
 		speciesChannel := make(chan []model.Species)
 		go person.GetSpecies(speciesChannel)
 		species := <-speciesChannel
@@ -78,7 +78,7 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// starships
-	if len(person.SubCard3) > 0 {
+	if len(person.Starships) > 0 {
 		starshipChannel := make(chan []model.Starship)
 		go person.GetStarships(starshipChannel)
 		starships := <-starshipChannel

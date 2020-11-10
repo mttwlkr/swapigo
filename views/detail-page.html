@@ -34,17 +34,17 @@
       </div>
     </nav>
     <!-- begin main -->
-    <h1 class="text-lg text-white pt-6 pl-6 pb-2">Person</h1>
+    <h1 class="text-lg text-white pt-6 pl-6 pb-2">{{.PageTitle}}</h1>
     <div class="py-8 rounded overflow-hidden shadow-lg bg-opacity-50 bg-white text-center">
       <div class="inline-block text-left">
-        <h1 class="font-bold text-xl text-gray-800">Name: {{.Person.Title}}</h1>
+        <h1 class="font-bold text-xl text-gray-800">Name: {{.MainCard.Title}}</h1>
         <h2 class="font-bold text-lg text-gray-700">
-          {{.Person.SubTitle}}
+          {{.MainCard.SubTitle}}
         </h2>
-        <p class="font-bold text-md text-gray-600">{{.Person.Body1}}</p>
-        <p class="font-bold text-md text-gray-600">{{.Person.Body2}}</p>
-        <p class="font-bold text-md text-gray-600">{{.Person.Body3}}</p>
-        <p class="font-bold text-md text-gray-600">{{.Person.Body4}}</p>
+        <p class="font-bold text-md text-gray-600">{{.MainCard.Body1}}</p>
+        <p class="font-bold text-md text-gray-600">{{.MainCard.Body2}}</p>
+        <p class="font-bold text-md text-gray-600">{{.MainCard.Body3}}</p>
+        <p class="font-bold text-md text-gray-600">{{.MainCard.Body4}}</p>
       </div>
     </div>
     <!-- end main -->
@@ -52,7 +52,7 @@
     <!-- begin species -->
     <!-- end title -->
     <!-- begin grid -->
-    {{if not .Species }}
+    {{if not .SubCard1 }}
     <div class="grid grid-rows-1 p-8"></div>
     <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white p-6 text-center">
       <h1 class="font-bold text-lg text-gray-800">No Species!</h1>
@@ -63,7 +63,7 @@
     <h1 class="text-lg text-white pt-6 pl-6 pb-2">Species</h1>
     <!-- begin grid -->
     <div class="grid grid-cols-3 gap-4">
-      {{range .Species}}
+      {{range .SubCard1}}
       <!-- begin card -->
       <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white">
         <div class="px-6 py-4">
@@ -83,7 +83,7 @@
     <!-- begin vehicles -->
     <!-- end title -->
     <!-- begin grid -->
-    {{if not .Vehicles }}
+    {{if not .SubCard2 }}
     <div class="grid grid-rows-1 p-8"></div>
     <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white p-6 text-center">
       <h1 class="font-bold text-lg text-gray-800">No Vehicles!</h1>
@@ -94,7 +94,7 @@
     <!-- begin grid -->
         <h1 class="text-lg text-white pt-6 pl-6 pb-2">Vehicles</h1>
     <div class="grid grid-cols-3 gap-4">
-      {{range .Vehicles}}
+      {{range .SubCard2}}
       <!-- begin card -->
       <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white hover:bg-gray-400 hover:bg-opacity-50">
         <div class="px-6 py-4">
@@ -117,7 +117,7 @@
 
     <!-- end title -->
     <!-- begin grid -->
-    {{if not .Starships }}
+    {{if not .SubCard3 }}
     <div class="grid grid-rows-1 p-8"></div>
     <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white p-6 text-center">
       <h1 class="font-bold text-lg text-gray-800">No Starships!</h1>
@@ -128,7 +128,7 @@
     <!-- begin grid -->
     <h1 class="text-lg text-white pt-6 pl-6 pb-2">Starships</h1>
     <div class="grid grid-cols-3 gap-4">
-      {{range .Starships}}
+      {{range .SubCard3}}
       <!-- begin card -->
      <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white hover:bg-gray-400 hover:bg-opacity-50">
         <div class="px-6 py-4">

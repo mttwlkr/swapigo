@@ -38,3 +38,31 @@ func GetInitialVehicles(url string, wg *sync.WaitGroup) (VehiclePageResponse, er
 	var page VehiclePageResponse
 	return page, lib.GetJSONwg(url, &page, wg)
 }
+
+// GetInitialVehicle gets a vehicle using a wait group
+func GetInitialVehicle(url string, wg *sync.WaitGroup) (Vehicle, error) {
+	var v Vehicle
+	return v, lib.GetJSONwg(url, &v, wg)
+}
+
+// GetFilms gets all films a vehicle is in
+func (v Vehicle) GetFilms(filmChannel chan []Film) {
+	var filmArray []Film
+	for _, url := range v.Films {
+		var f Film
+		lib.GetJSON(url, &f)
+		filmArray = append(filmArray, f)
+		filmChannel <- filmArray
+	}
+}
+
+// GetPilots gets all pilots of a vehicle
+func (v Vehicle) GetPilots(pilotChannel chan []Person) {
+	var pilotArray []Person
+	for _, url := range v.Pilots {
+		var p Person
+		lib.GetJSON(url, &p)
+		pilotArray = append(pilotArray, p)
+		pilotChannel <- pilotArray
+	}
+}

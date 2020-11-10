@@ -97,27 +97,3 @@ func (person Person) GetFilms() (films []Film, err error) {
 	}
 	return
 }
-
-// GetSpecies gets all the species for a person
-// func (person Person) GetSpecies() (species []Species, e error) {
-// 	for _, url := range person.Species {
-// 		var s Species
-// 		if e := lib.GetJSON(url, &s); e != nil {
-// 			return species, e
-// 		}
-// 		species = append(species, s)
-// 	}
-// 	return
-// }
-
-// GetStarships gets all the starships for person
-// func (person Person) GetStarships() (starships []Starship, e error) {
-// 	for _, url := range person.Starships {
-// 		var s Starship
-// 		if e := lib.GetJSON(url, &s); e != nil {
-// 			return starships, e
-// 		}
-// 		starships = append(starships, s)
-// 	}
-// 	return
-// }
