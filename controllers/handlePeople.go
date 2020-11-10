@@ -9,19 +9,10 @@ import (
 	"sync"
 )
 
-// PeoplePageResponse is the response to a request for a page of people
-type PeoplePageResponse struct {
-	PageNumber   int
-	NextPage     string
-	PreviousPage string
-	Cards        []model.SubCard
-	PageTitle    string
-}
-
 // HandlePeople handles a single get request for a page of people
 func HandlePeople(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("views/index-page.html"))
-	var page PeoplePageResponse
+	var page model.IndexPageResponse
 
 	var wg sync.WaitGroup
 	fmt.Println("in handlePeople")
