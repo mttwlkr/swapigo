@@ -12,8 +12,8 @@ type IndexPageResponse struct {
 // DetailPageResponse is the response to a request for an individual user
 type DetailPageResponse struct {
 	PageTitle string
-	MainCard  model.MainCard
-	SubCard1  []model.SubCard
-	SubCard2  []model.SubCard
-	SubCard3  []model.SubCard
+	MainCard  MainCard
+	SubCard1  []SubCard
+	SubCard2  []SubCard
+	SubCard3  []SubCard
 }
