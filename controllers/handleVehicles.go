@@ -41,7 +41,7 @@ func HandleVehicles(w http.ResponseWriter, r *http.Request) {
 			Title:     "Name: " + vehicle.Name,
 			SubTitle:  "Manufacturer: " + vehicle.Manufacturer,
 			SubTitle2: "Model: " + vehicle.Model,
-			Body:      "blah",
+			Body:      "Max Speed: " + vehicle.MaxAtmospheringSpeed,
 			URL:       "/vehicle?id=" + lib.GetIDFromString(vehicle.URL),
 		})
 	}
