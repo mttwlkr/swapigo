@@ -13,5 +13,6 @@ func main() {
 	http.HandleFunc("/", controllers.HandlePeople)
 	http.HandleFunc("/people", controllers.HandlePeople)
 	http.HandleFunc("/person", controllers.HandlePerson)
+	http.HandleFunc("/vehicles", controllers.HandleVehicles)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }

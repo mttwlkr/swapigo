@@ -1,5 +1,10 @@
 package model
 
+import (
+	"swapigo/lib"
+	"sync"
+)
+
 // Vehicle is a star wars vehicle
 type Vehicle struct {
 	Name                 string   `json:"name"`
@@ -18,4 +23,18 @@ type Vehicle struct {
 	Created              string   `json:"created"`
 	Edited               string   `json:"edited"`
 	URL                  string   `json:"url"`
+}
+
+// VehiclePageResponse is the response for a page of vehicles
+type VehiclePageResponse struct {
+	Count    int    `json:"count"`
+	Next     string `json:"next"`
+	Previous string `json:"previous"`
+	Results  []Vehicle
+}
+
+// GetInitialVehicles fetches a page of vehicles using a wait group
+func GetInitialVehicles(url string, wg *sync.WaitGroup) (VehiclePageResponse, error) {
+	var page VehiclePageResponse
+	return page, lib.GetJSONwg(url, &page, wg)
 }
