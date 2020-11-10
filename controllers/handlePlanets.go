@@ -5,7 +5,7 @@ import (
 	"html/template"
 	"net/http"
 	"swapigo/lib"
-	"swapigo/models"
+	"swapigo/model"
 	"sync"
 )
 

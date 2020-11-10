@@ -7,7 +7,7 @@ import (
 	"net/http"
 	// "net/url"
 	"swapigo/lib"
-	"swapigo/models"
+	"swapigo/model"
 	"sync"
 )
 
