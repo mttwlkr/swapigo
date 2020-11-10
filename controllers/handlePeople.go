@@ -14,7 +14,7 @@ type PeoplePageResponse struct {
 	PageNumber   int
 	NextPage     string
 	PreviousPage string
-	People       []model.SubCard
+	Cards        []model.SubCard
 	PageTitle    string
 }
 
@@ -47,9 +47,9 @@ func HandlePeople(w http.ResponseWriter, r *http.Request) {
 	page.NextPage = "/people?id=" + lib.GetIDFromString(peoplePage.Next)
 	page.PreviousPage = "/people?id=" + lib.GetIDFromString(peoplePage.Previous)
 
-	page.People = make([]model.SubCard, 0)
+	page.Cards = make([]model.SubCard, 0)
 	for _, person := range peoplePage.Results {
-		page.People = append(page.People, model.SubCard{
+		page.Cards = append(page.Cards, model.SubCard{
 			Title:     "Name: " + person.Name,
 			SubTitle:  "BirthYear: " + person.BirthYear,
 			SubTitle2: "Mass: " + person.Mass,
