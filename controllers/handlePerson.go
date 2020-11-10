@@ -56,11 +56,9 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 
 	// vehicles
 	if len(person.Vehicles) > 0 {
-		vehicles, vErr := person.GetVehicles()
-		if vErr != nil {
-			fmt.Println(vErr.Error())
-		}
-
+		vehicleChannel := make(chan []model.Vehicle)
+		go person.GetVehicles(vehicleChannel)
+		vehicles := <-vehicleChannel
 		page.Vehicles = make([]model.SubCard, 0)
 		for _, vehicle := range vehicles {
 			page.Vehicles = append(page.Vehicles, model.SubCard{
@@ -73,13 +71,10 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	// species
 	if len(person.Species) > 0 {
-		species, sErr := person.GetSpecies()
-		if sErr != nil {
-			fmt.Println(sErr.Error())
-		}
-
+		speciesChannel := make(chan []model.Species)
+		go person.GetSpecies(speciesChannel)
+		species := <-speciesChannel
 		page.Species = make([]model.SubCard, 0)
 		for _, specie := range species {
 			page.Species = append(page.Species, model.SubCard{
@@ -94,11 +89,9 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 
 	// starships
 	if len(person.Starships) > 0 {
-		starships, sErr := person.GetStarships()
-		if sErr != nil {
-			fmt.Println(sErr.Error())
-		}
-
+		starshipChannel := make(chan []model.Starship)
+		go person.GetStarships(starshipChannel)
+		starships := <-starshipChannel
 		page.Starships = make([]model.SubCard, 0)
 		for _, ship := range starships {
 			fmt.Println("ship.Name", ship.Name)

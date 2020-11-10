@@ -54,39 +54,36 @@ func (person Person) GetHomeworld() (Planet, error) {
 }
 
 // GetSpecies gets all the species for a person
-func (person Person) GetSpecies() (species []Species, e error) {
+func (person Person) GetSpecies(speciesChannel chan []Species) {
+	var speciesArray []Species
 	for _, url := range person.Species {
 		var s Species
-		if e := lib.GetJSON(url, &s); e != nil {
-			return species, e
-		}
-		species = append(species, s)
+		lib.GetJSON(url, &s)
+		speciesArray = append(speciesArray, s)
+		speciesChannel <- speciesArray
 	}
-	return
 }
 
 // GetStarships gets all the starships for person
-func (person Person) GetStarships() (starships []Starship, e error) {
+func (person Person) GetStarships(starshipChannel chan []Starship) {
+	var starshipsArray []Starship
 	for _, url := range person.Starships {
 		var s Starship
-		if e := lib.GetJSON(url, &s); e != nil {
-			return starships, e
-		}
-		starships = append(starships, s)
+		lib.GetJSON(url, &s)
+		starshipsArray = append(starshipsArray, s)
+		starshipChannel <- starshipsArray
 	}
-	return
 }
 
 // GetVehicles gets all the vehicles for a person
-func (person Person) GetVehicles() (vehicles []Vehicle, err error) {
+func (person Person) GetVehicles(vehicleChannel chan []Vehicle) {
+	var vehicleArray []Vehicle
 	for _, url := range person.Vehicles {
 		var v Vehicle
-		if err := lib.GetJSON(url, &v); err != nil {
-			return vehicles, err
-		}
-		vehicles = append(vehicles, v)
+		lib.GetJSON(url, &v)
+		vehicleArray = append(vehicleArray, v)
+		vehicleChannel <- vehicleArray
 	}
-	return
 }
 
 // GetFilms gets all the films on a person instance
@@ -101,6 +98,26 @@ func (person Person) GetFilms() (films []Film, err error) {
 	return
 }
 
-// func (person Person) GetStarship() (starships []Starship, err, error) {
-// for _, url := range person.
+// GetSpecies gets all the species for a person
+// func (person Person) GetSpecies() (species []Species, e error) {
+// 	for _, url := range person.Species {
+// 		var s Species
+// 		if e := lib.GetJSON(url, &s); e != nil {
+// 			return species, e
+// 		}
+// 		species = append(species, s)
+// 	}
+// 	return
+// }
+
+// GetStarships gets all the starships for person
+// func (person Person) GetStarships() (starships []Starship, e error) {
+// 	for _, url := range person.Starships {
+// 		var s Starship
+// 		if e := lib.GetJSON(url, &s); e != nil {
+// 			return starships, e
+// 		}
+// 		starships = append(starships, s)
+// 	}
+// 	return
 // }
