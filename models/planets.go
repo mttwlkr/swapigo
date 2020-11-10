@@ -23,6 +23,14 @@ type Planet struct {
 	URL            string   `json:"url"`
 }
 
+// PlanetPageResponse is the response for a page of planets
+type PlanetPageResponse struct {
+	Count    int    `json:"count"`
+	Next     string `json:"next"`
+	Previous string `json:"previous"`
+	Results  []Planet
+}
+
 // GetPlanet from url
 func GetPlanet(url string) (planet Planet, err error) {
 	return planet, lib.GetJSON(url, planet)
@@ -34,7 +42,8 @@ func GetInitialPlanet(url string, wg *sync.WaitGroup) (Planet, error) {
 	return p, lib.GetJSONwg(url, &p, wg)
 }
 
-// func (p Planet) GetResidents() ([]Person, error) {
-// var people []Person
-//
-// }
+// GetInitialPlanets gets a page of planets
+func GetInitialPlanets(url string, wg *sync.WaitGroup) (PlanetPageResponse, error) {
+	var p PlanetPageResponse
+	return p, lib.GetJSONwg(url, &p, wg)
+}
