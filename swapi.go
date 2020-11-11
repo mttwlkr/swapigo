@@ -16,5 +16,6 @@ func main() {
 	http.HandleFunc("/vehicles", controllers.HandleVehicles)
 	http.HandleFunc("/vehicle", controllers.HandleVehicle)
 	http.HandleFunc("/planets", controllers.HandlePlanets)
+	http.HandleFunc("/planet", controllers.HandlePlanet)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }

@@ -47,3 +47,25 @@ func GetInitialPlanets(url string, wg *sync.WaitGroup) (PlanetPageResponse, erro
 	var p PlanetPageResponse
 	return p, lib.GetJSONwg(url, &p, wg)
 }
+
+// GetFilms gets all the films for a planet
+func (p Planet) GetFilms(filmChannel chan []Film) {
+	var filmArray []Film
+	for _, url := range p.Films {
+		var f Film
+		lib.GetJSON(url, &f)
+		filmArray = append(filmArray, f)
+		filmChannel <- filmArray
+	}
+}
+
+// GetResidents gets all the residents for a planet
+func (p Planet) GetResidents(residentChannel chan []Person) {
+	var residentArray []Person
+	for _, url := range p.Residents {
+		var resident Person
+		lib.GetJSON(url, &resident)
+		residentArray = append(residentArray, resident)
+		residentChannel <- residentArray
+	}
+}
