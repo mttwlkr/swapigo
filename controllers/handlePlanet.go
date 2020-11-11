@@ -39,9 +39,10 @@ func HandlePlanet(w http.ResponseWriter, r *http.Request) {
 		filmChannel := make(chan []model.Film)
 		go planet.GetFilms(filmChannel)
 		films := <-filmChannel
-		page.SubCard1 = make([]model.SubCard, 0)
+		page.Cards1 = make([]model.SubCard, 0)
+		page.Cards1Title = "Films"
 		for _, film := range films {
-			page.SubCard1 = append(page.SubCard1, model.SubCard{
+			page.Cards1 = append(page.Cards1, model.SubCard{
 				Title:     "Title: " + film.Title,
 				SubTitle:  "Director: " + film.Director,
 				SubTitle2: "Producer: " + film.Producer,
@@ -55,9 +56,10 @@ func HandlePlanet(w http.ResponseWriter, r *http.Request) {
 		residentsChannel := make(chan []model.Person)
 		go planet.GetResidents(residentsChannel)
 		residents := <-residentsChannel
-		page.SubCard2 = make([]model.SubCard, 0)
+		page.Cards2Title = "Residents"
+		page.Cards2 = make([]model.SubCard, 0)
 		for _, resident := range residents {
-			page.SubCard2 = append(page.SubCard2, model.SubCard{
+			page.Cards2 = append(page.Cards2, model.SubCard{
 				Title:     "Name: " + resident.Name,
 				SubTitle:  "Height: " + resident.Height,
 				SubTitle2: "Mass: " + resident.Mass + " KG",

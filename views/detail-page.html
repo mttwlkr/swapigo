@@ -52,18 +52,18 @@
     <!-- begin species -->
     <!-- end title -->
     <!-- begin grid -->
-    {{if not .SubCard1 }}
+    {{if not .Cards1 }}
     <div class="grid grid-rows-1 p-8"></div>
     <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white p-6 text-center">
-      <h1 class="font-bold text-lg text-gray-800">No Species!</h1>
+      <h1 class="font-bold text-lg text-gray-800">No {{.Cards1Title}}!</h1>
     </div>
     </div>
     <!-- end grid -->
     {{else}}
-    <h1 class="text-lg text-white pt-6 pl-6 pb-2">Species</h1>
+    <h1 class="text-lg text-white pt-6 pl-6 pb-2">{{.Cards1Title}}</h1>
     <!-- begin grid -->
     <div class="grid grid-cols-3 gap-4">
-      {{range .SubCard1}}
+      {{range .Cards1}}
       <!-- begin card -->
       <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white">
         <a href="{{.URL}}">
@@ -85,18 +85,18 @@
     <!-- begin vehicles -->
     <!-- end title -->
     <!-- begin grid -->
-    {{if not .SubCard2 }}
+    {{if not .Cards2 }}
     <div class="grid grid-rows-1 p-8"></div>
     <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white p-6 text-center">
-      <h1 class="font-bold text-lg text-gray-800">No Vehicles!</h1>
+      <h1 class="font-bold text-lg text-gray-800">No {{.Cards2Title}}!</h1>
     </div>
     </div>
     <!-- end grid -->
     {{else}}
     <!-- begin grid -->
-    <h1 class="text-lg text-white pt-6 pl-6 pb-2">Vehicles</h1>
+    <h1 class="text-lg text-white pt-6 pl-6 pb-2">{{.Cards2Title}}</h1>
     <div class="grid grid-cols-3 gap-4">
-      {{range .SubCard2}}
+      {{range .Cards2}}
       <!-- begin card -->
       <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white hover:bg-gray-400 hover:bg-opacity-50">
         <a href="{{.URL}}">
@@ -121,18 +121,18 @@
 
     <!-- end title -->
     <!-- begin grid -->
-    {{if not .SubCard3 }}
+    {{if not .Cards3 }}
     <div class="grid grid-rows-1 p-8"></div>
     <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white p-6 text-center">
-      <h1 class="font-bold text-lg text-gray-800">No Starships!</h1>
+      <h1 class="font-bold text-lg text-gray-800">No {{.Cards3Title}}!</h1>
     </div>
     </div>
     <!-- end grid -->
     {{else}}
     <!-- begin grid -->
-    <h1 class="text-lg text-white pt-6 pl-6 pb-2">Starships</h1>
+    <h1 class="text-lg text-white pt-6 pl-6 pb-2">{{.Cards3Title}}</h1>
     <div class="grid grid-cols-3 gap-4">
-      {{range .SubCard3}}
+      {{range .Cards3}}
       <!-- begin card -->
       <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white hover:bg-gray-400 hover:bg-opacity-50">
         <a href="{{.URL}}">

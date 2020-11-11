@@ -49,9 +49,10 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 		vehicleChannel := make(chan []model.Vehicle)
 		go person.GetVehicles(vehicleChannel)
 		vehicles := <-vehicleChannel
-		page.SubCard1 = make([]model.SubCard, 0)
+		page.Cards1Title = "Vehicles"
+		page.Cards1 = make([]model.SubCard, 0)
 		for _, vehicle := range vehicles {
-			page.SubCard1 = append(page.SubCard1, model.SubCard{
+			page.Cards1 = append(page.Cards1, model.SubCard{
 				Title:     "Name: " + vehicle.Name,
 				SubTitle:  "Manufacturer: " + vehicle.Manufacturer,
 				SubTitle2: "Model: " + vehicle.Model,
@@ -65,9 +66,10 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 		speciesChannel := make(chan []model.Species)
 		go person.GetSpecies(speciesChannel)
 		species := <-speciesChannel
-		page.SubCard2 = make([]model.SubCard, 0)
+		page.Cards2Title = "Species"
+		page.Cards2 = make([]model.SubCard, 0)
 		for _, specie := range species {
-			page.SubCard2 = append(page.SubCard2, model.SubCard{
+			page.Cards2 = append(page.Cards2, model.SubCard{
 				Title:     "Name: " + specie.Name,
 				SubTitle:  "Classification: " + specie.Classification,
 				SubTitle2: "Designation: " + specie.Designation,
@@ -82,10 +84,11 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 		starshipChannel := make(chan []model.Starship)
 		go person.GetStarships(starshipChannel)
 		starships := <-starshipChannel
-		page.SubCard3 = make([]model.SubCard, 0)
+		page.Cards3Title = "Starships"
+		page.Cards3 = make([]model.SubCard, 0)
 		for _, ship := range starships {
 			fmt.Println("ship.Name", ship.Name)
-			page.SubCard3 = append(page.SubCard3, model.SubCard{
+			page.Cards3 = append(page.Cards3, model.SubCard{
 				Title:     "Name: " + ship.Name,
 				SubTitle:  "Manufacturer: " + ship.Manufacturer,
 				SubTitle2: "Model: " + ship.Model,

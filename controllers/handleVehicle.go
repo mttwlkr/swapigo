@@ -42,9 +42,10 @@ func HandleVehicle(w http.ResponseWriter, r *http.Request) {
 		filmChannel := make(chan []model.Film)
 		go vehicle.GetFilms(filmChannel)
 		films := <-filmChannel
-		page.SubCard1 = make([]model.SubCard, 0)
+		page.Cards1Title = "Films"
+		page.Cards1 = make([]model.SubCard, 0)
 		for _, film := range films {
-			page.SubCard1 = append(page.SubCard1, model.SubCard{
+			page.Cards1 = append(page.Cards1, model.SubCard{
 				Title:     "Title: " + film.Title,
 				SubTitle:  "Director: " + film.Director,
 				SubTitle2: "Producer: " + film.Producer,
@@ -58,9 +59,10 @@ func HandleVehicle(w http.ResponseWriter, r *http.Request) {
 		pilotChannel := make(chan []model.Person)
 		go vehicle.GetPilots(pilotChannel)
 		pilots := <-pilotChannel
-		page.SubCard2 = make([]model.SubCard, 0)
+		page.Cards2Title = "Pilots"
+		page.Cards2 = make([]model.SubCard, 0)
 		for _, pilot := range pilots {
-			page.SubCard2 = append(page.SubCard2, model.SubCard{
+			page.Cards2 = append(page.Cards2, model.SubCard{
 				Title:     "Name: " + pilot.Name,
 				SubTitle:  "Height: " + pilot.Height,
 				SubTitle2: "Mass: " + pilot.Mass + " KG",
