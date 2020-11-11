@@ -62,7 +62,7 @@ func HandlePlanet(w http.ResponseWriter, r *http.Request) {
 				SubTitle:  "Height: " + resident.Height,
 				SubTitle2: "Mass: " + resident.Mass + " KG",
 				Body:      "Gender: " + resident.Gender,
-				URL:       "BirthYear: " + resident.BirthYear,
+				URL:       "/person?id=" + lib.GetIDFromString(resident.URL),
 			})
 		}
 	}

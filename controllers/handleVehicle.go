@@ -65,7 +65,7 @@ func HandleVehicle(w http.ResponseWriter, r *http.Request) {
 				SubTitle:  "Height: " + pilot.Height,
 				SubTitle2: "Mass: " + pilot.Mass + " KG",
 				Body:      "Gender: " + pilot.Gender,
-				URL:       "BirthYear: " + pilot.BirthYear,
+				URL:       "/person?id=" + lib.GetIDFromString(pilot.URL),
 			})
 		}
 	}

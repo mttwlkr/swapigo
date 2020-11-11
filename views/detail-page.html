@@ -66,12 +66,14 @@
       {{range .SubCard1}}
       <!-- begin card -->
       <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white">
-        <div class="px-6 py-4">
-          <h1 class="font-bold text-lg text-gray-800">{{.Title}}</h1>
-          <h2 class="font-bold text-md text-gray-700">{{.SubTitle}}</h2>
-          <h2 class="font-bold text-md text-gray-700">{{.SubTitle2}}</h2>
-          <p class="text-sm text-gray-600">{{.Body}}</h2>
-        </div>
+        <a href="{{.URL}}">
+          <div class="px-6 py-4">
+            <h1 class="font-bold text-lg text-gray-800">{{.Title}}</h1>
+            <h2 class="font-bold text-md text-gray-700">{{.SubTitle}}</h2>
+            <h2 class="font-bold text-md text-gray-700">{{.SubTitle2}}</h2>
+            <p class="text-sm text-gray-600">{{.Body}}</h2>
+          </div>
+        </a>
       </div>
       <!-- end card -->
       {{end}}
@@ -92,17 +94,19 @@
     <!-- end grid -->
     {{else}}
     <!-- begin grid -->
-        <h1 class="text-lg text-white pt-6 pl-6 pb-2">Vehicles</h1>
+    <h1 class="text-lg text-white pt-6 pl-6 pb-2">Vehicles</h1>
     <div class="grid grid-cols-3 gap-4">
       {{range .SubCard2}}
       <!-- begin card -->
       <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white hover:bg-gray-400 hover:bg-opacity-50">
-        <div class="px-6 py-4">
-          <h1 class="font-bold text-lg text-gray-800">{{.Title}}</h1>
-          <h2 class="font-bold text-md text-gray-700">{{.SubTitle}}</h2>
-          <h2 class="font-bold text-md text-gray-700">{{.SubTitle2}}</h2>
-          <p class="text-sm text-gray-600">{{.Body}}</h2>
-        </div>
+        <a href="{{.URL}}">
+          <div class="px-6 py-4">
+            <h1 class="font-bold text-lg text-gray-800">{{.Title}}</h1>
+            <h2 class="font-bold text-md text-gray-700">{{.SubTitle}}</h2>
+            <h2 class="font-bold text-md text-gray-700">{{.SubTitle2}}</h2>
+            <p class="text-sm text-gray-600">{{.Body}}</h2>
+          </div>
+        </a>
       </div>
       <!-- end card -->
       {{end}}
@@ -130,13 +134,15 @@
     <div class="grid grid-cols-3 gap-4">
       {{range .SubCard3}}
       <!-- begin card -->
-     <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white hover:bg-gray-400 hover:bg-opacity-50">
-        <div class="px-6 py-4">
-          <h1 class="font-bold text-lg text-gray-800">{{.Title}}</h1>
-          <h2 class="font-bold text-md text-gray-700">{{.SubTitle}}</h2>
-          <h2 class="font-bold text-md text-gray-700">{{.SubTitle2}}</h2>
-          <p class="text-sm text-gray-600">{{.Body}}</h2>
-        </div>
+      <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white hover:bg-gray-400 hover:bg-opacity-50">
+        <a href="{{.URL}}">
+          <div class="px-6 py-4">
+            <h1 class="font-bold text-lg text-gray-800">{{.Title}}</h1>
+            <h2 class="font-bold text-md text-gray-700">{{.SubTitle}}</h2>
+            <h2 class="font-bold text-md text-gray-700">{{.SubTitle2}}</h2>
+            <p class="text-sm text-gray-600">{{.Body}}</h2>
+          </div>
+        </a>
       </div>
       <!-- end card -->
       {{end}}

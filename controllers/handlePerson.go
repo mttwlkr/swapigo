@@ -56,7 +56,7 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 				SubTitle:  "Manufacturer: " + vehicle.Manufacturer,
 				SubTitle2: "Model: " + vehicle.Model,
 				Body:      "The vehicle hodls " + vehicle.Crew + " crew & " + vehicle.Passengers + " passengers",
-				URL:       "",
+				URL:       "/vehicle?id=" + lib.GetIDFromString(vehicle.URL),
 			})
 		}
 	}
