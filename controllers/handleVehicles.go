@@ -37,13 +37,7 @@ func HandleVehicles(w http.ResponseWriter, r *http.Request) {
 
 	page.Cards = make([]model.SubCard, 0)
 	for _, vehicle := range vehiclePage.Results {
-		page.Cards = append(page.Cards, model.SubCard{
-			Title:     "Name: " + vehicle.Name,
-			SubTitle:  "Manufacturer: " + vehicle.Manufacturer,
-			SubTitle2: "Model: " + vehicle.Model,
-			Body:      "Max Speed: " + vehicle.MaxAtmospheringSpeed,
-			URL:       "/vehicle?id=" + lib.GetIDFromString(vehicle.URL),
-		})
+		page.Cards = append(page.Cards, model.GetVehicleCard(vehicle))
 	}
 
 	tmpl.Execute(w, page)

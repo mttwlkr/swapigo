@@ -45,6 +45,17 @@ func GetInitialVehicle(url string, wg *sync.WaitGroup) (Vehicle, error) {
 	return v, lib.GetJSONwg(url, &v, wg)
 }
 
+// GetVehicleCard returns a SubCard of vehicle attributes
+func GetVehicleCard(v Vehicle) SubCard {
+	return SubCard{
+		Title:     "Name: " + v.Name,
+		SubTitle:  "Manufacturer: " + v.Manufacturer,
+		SubTitle2: "Model: " + v.Model,
+		Body:      "The vehicle hodls " + v.Crew + " crew & " + v.Passengers + " passengers",
+		URL:       "/vehicle?id=" + lib.GetIDFromString(v.URL),
+	}
+}
+
 // GetFilms gets all films a vehicle is in
 func (v Vehicle) GetFilms(filmChannel chan []Film) {
 	var filmArray []Film
