@@ -14,16 +14,14 @@ func HandlePeople(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("views/index-page.html"))
 	var page model.IndexPageResponse
 
-	var wg sync.WaitGroup
-	fmt.Println("in handlePeople")
-
-	wg.Add(1)
-
 	queryPageNumber := "1"
 	keys := r.URL.Query()["id"]
 	if len(keys) > 0 {
 		queryPageNumber = keys[0]
 	}
+
+	var wg sync.WaitGroup
+	wg.Add(1)
 
 	peoplePage, err := model.GetInitialPeople(lib.BaseURL+"people/?page="+queryPageNumber, &wg)
 

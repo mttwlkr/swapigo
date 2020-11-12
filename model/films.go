@@ -1,5 +1,10 @@
 package model
 
+import (
+	"swapigo/lib"
+	"sync"
+)
+
 // Film is a struct of a Star Wars movie
 type Film struct {
 	Title        string   `json:"title"`
@@ -17,14 +22,16 @@ type Film struct {
 	URL          string   `json:"url"`
 }
 
-// func getFilms(urls []string, wg *sync.WaitGroup) (films Film[], error) {
-// 	for _, url := range urls {
-// 		var f Film
+// FilmPageResponse is a page of films
+type FilmPageResponse struct {
+	Count    int    `json:"count"`
+	Next     string `json:"next"`
+	Previous string `json:"previous"`
+	Results  []Film
+}
 
-// 		// if err = Get(url, &f); err != nil {
-// 			// return
-// 		// }
-// 		films = append(films, f)
-// 	}
-// 	return
-// }
+// GetInitialFilms gets a page of films
+func GetInitialFilms(url string, wg *sync.WaitGroup) (FilmPageResponse, error) {
+	var f FilmPageResponse
+	return f, lib.GetJSONwg(url, &f, wg)
+}
