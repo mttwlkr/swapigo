@@ -18,3 +18,14 @@ type Species struct {
 	Edited          string   `json:"edited"`
 	URL             string   `json:"url"`
 }
+
+// GetSpeciesCard returns a SubCard of specie values
+func GetSpeciesCard(s Species) SubCard {
+	return SubCard{
+		Title:     "Name: " + s.Name,
+		SubTitle:  "Classification: " + s.Classification,
+		SubTitle2: "Designation: " + s.Designation,
+		Body:      "They are from " + s.Homeworld + " and speak " + s.Language,
+		URL:       "",
+	}
+}

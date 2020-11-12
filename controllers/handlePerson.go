@@ -16,11 +16,10 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 	keys := r.URL.Query()["id"]
 	personID := keys[0]
 
-	var wg sync.WaitGroup
 	tmpl := template.Must(template.ParseFiles("views/detail-page.html"))
 	var page model.DetailPageResponse
 
-	fmt.Println("we in here")
+	var wg sync.WaitGroup
 	wg.Add(1)
 	person, pErr := model.GetInitialPerson(lib.BaseURL+"people/"+personID, &wg)
 	if pErr != nil {
@@ -69,13 +68,7 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 		page.Cards2Title = "Species"
 		page.Cards2 = make([]model.SubCard, 0)
 		for _, specie := range species {
-			page.Cards2 = append(page.Cards2, model.SubCard{
-				Title:     "Name: " + specie.Name,
-				SubTitle:  "Classification: " + specie.Classification,
-				SubTitle2: "Designation: " + specie.Designation,
-				Body:      "They are from " + specie.Homeworld + " and speak " + specie.Language,
-				URL:       "",
-			})
+			page.Cards2 = append(page.Cards2, model.GetSpeciesCard(specie))
 		}
 	}
 
