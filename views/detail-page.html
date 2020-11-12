@@ -39,7 +39,7 @@
     <!-- begin main -->
     <h1 class="text-lg text-white pt-6 pl-6 pb-2">{{.PageTitle}}</h1>
     <div class="py-8 rounded overflow-hidden shadow-lg bg-opacity-50 bg-white text-center">
-      <div class="inline-block text-left">
+      <div class="inline-block text-left px-6 py-4">
         <h1 class="font-bold text-xl text-gray-800">Name: {{.MainCard.Title}}</h1>
         <h2 class="font-bold text-lg text-gray-700">
           {{.MainCard.SubTitle}}
@@ -52,17 +52,8 @@
     </div>
     <!-- end main -->
 
-    <!-- begin species -->
-    <!-- end title -->
-    <!-- begin grid -->
-    {{if not .Cards1 }}
-    <div class="grid grid-rows-1 p-8"></div>
-    <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white p-6 text-center">
-      <h1 class="font-bold text-lg text-gray-800">No {{.Cards1Title}}!</h1>
-    </div>
-    </div>
-    <!-- end grid -->
-    {{else}}
+    <!-- begin section -->
+    {{if .Cards1Title }}
     <h1 class="text-lg text-white pt-6 pl-6 pb-2">{{.Cards1Title}}</h1>
     <!-- begin grid -->
     <div class="grid grid-cols-3 gap-4">
@@ -83,25 +74,16 @@
       <!-- end grid -->
     </div>
     {{end}}
-    <!-- end species -->
+    <!-- end section -->
 
-    <!-- begin vehicles -->
-    <!-- end title -->
-    <!-- begin grid -->
-    {{if not .Cards2 }}
-    <div class="grid grid-rows-1 p-8"></div>
-    <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white p-6 text-center">
-      <h1 class="font-bold text-lg text-gray-800">No {{.Cards2Title}}!</h1>
-    </div>
-    </div>
-    <!-- end grid -->
-    {{else}}
-    <!-- begin grid -->
+    <!-- begin section -->
+    {{if .Cards2Title }}
     <h1 class="text-lg text-white pt-6 pl-6 pb-2">{{.Cards2Title}}</h1>
+    <!-- begin grid -->
     <div class="grid grid-cols-3 gap-4">
       {{range .Cards2}}
       <!-- begin card -->
-      <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white hover:bg-gray-400 hover:bg-opacity-50">
+      <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white">
         <a href="{{.URL}}">
           <div class="px-6 py-4">
             <h1 class="font-bold text-lg text-gray-800">{{.Title}}</h1>
@@ -116,28 +98,18 @@
       <!-- end grid -->
     </div>
     {{end}}
-    <!-- end vehicles -->
+    <!-- end section -->
 
 
 
-    <!-- begin Starships -->
-
-    <!-- end title -->
-    <!-- begin grid -->
-    {{if not .Cards3 }}
-    <div class="grid grid-rows-1 p-8"></div>
-    <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white p-6 text-center">
-      <h1 class="font-bold text-lg text-gray-800">No {{.Cards3Title}}!</h1>
-    </div>
-    </div>
-    <!-- end grid -->
-    {{else}}
-    <!-- begin grid -->
+    <!-- begin section -->
+    {{if .Cards3Title }}
     <h1 class="text-lg text-white pt-6 pl-6 pb-2">{{.Cards3Title}}</h1>
+    <!-- begin grid -->
     <div class="grid grid-cols-3 gap-4">
       {{range .Cards3}}
       <!-- begin card -->
-      <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white hover:bg-gray-400 hover:bg-opacity-50">
+      <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white">
         <a href="{{.URL}}">
           <div class="px-6 py-4">
             <h1 class="font-bold text-lg text-gray-800">{{.Title}}</h1>
@@ -152,8 +124,56 @@
       <!-- end grid -->
     </div>
     {{end}}
-    <!-- end Starships -->
+    <!-- end section -->
 
+
+    <!-- begin section -->
+    {{if .Cards4Title }}
+    <h1 class="text-lg text-white pt-6 pl-6 pb-2">{{.Cards4Title}}</h1>
+    <!-- begin grid -->
+    <div class="grid grid-cols-3 gap-4">
+      {{range .Cards4}}
+      <!-- begin card -->
+      <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white">
+        <a href="{{.URL}}">
+          <div class="px-6 py-4">
+            <h1 class="font-bold text-lg text-gray-800">{{.Title}}</h1>
+            <h2 class="font-bold text-md text-gray-700">{{.SubTitle}}</h2>
+            <h2 class="font-bold text-md text-gray-700">{{.SubTitle2}}</h2>
+            <p class="text-sm text-gray-600">{{.Body}}</h2>
+          </div>
+        </a>
+      </div>
+      <!-- end card -->
+      {{end}}
+      <!-- end grid -->
+    </div>
+    {{end}}
+    <!-- end section -->
+
+    <!-- begin section -->
+    {{if .Cards5Title }}
+    <h1 class="text-lg text-white pt-6 pl-6 pb-2">{{.Cards5Title}}</h1>
+    <!-- begin grid -->
+    <div class="grid grid-cols-3 gap-4">
+      {{range .Cards5}}
+      <!-- begin card -->
+      <div class="rounded overflow-hidden shadow-lg bg-opacity-50 bg-white">
+        <a href="{{.URL}}">
+          <div class="px-6 py-4">
+            <h1 class="font-bold text-lg text-gray-800">{{.Title}}</h1>
+            <h2 class="font-bold text-md text-gray-700">{{.SubTitle}}</h2>
+            <h2 class="font-bold text-md text-gray-700">{{.SubTitle2}}</h2>
+            <p class="text-sm text-gray-600">{{.Body}}</h2>
+          </div>
+        </a>
+      </div>
+      <!-- end card -->
+      {{end}}
+      <!-- end grid -->
+    </div>
+    {{end}}
+    <!-- end section -->
 
     <!-- end main -->
   </main>
