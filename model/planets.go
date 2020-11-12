@@ -48,6 +48,17 @@ func GetInitialPlanets(url string, wg *sync.WaitGroup) (PlanetPageResponse, erro
 	return p, lib.GetJSONwg(url, &p, wg)
 }
 
+// GetPlanetCard returns a sub card of planet values
+func GetPlanetCard(p Planet) (c SubCard) {
+	return SubCard{
+		Title:     "Name: " + p.Name,
+		SubTitle:  "Climate: " + p.Climate,
+		SubTitle2: "Gravity: " + p.Gravity,
+		Body:      "Population: " + p.Population,
+		URL:       "planet?id=" + lib.GetIDFromString(p.URL),
+	}
+}
+
 // GetFilms gets all the films for a planet
 func (p Planet) GetFilms(filmChannel chan []Film) {
 	var filmArray []Film

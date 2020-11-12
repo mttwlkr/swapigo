@@ -38,13 +38,7 @@ func HandlePlanets(w http.ResponseWriter, r *http.Request) {
 	page.PreviousPage = "/planets?id=" + lib.GetIDFromString(planetPage.Previous)
 
 	for _, planet := range planetPage.Results {
-		page.Cards = append(page.Cards, model.SubCard{
-			Title:     "Name: " + planet.Name,
-			SubTitle:  "Climate: " + planet.Climate,
-			SubTitle2: "Gravity: " + planet.Gravity,
-			Body:      "Population: " + planet.Population,
-			URL:       "planet?id=" + lib.GetIDFromString(planet.URL),
-		})
+		page.Cards = append(page.Cards, model.GetPlanetCard(planet))
 	}
 	tmpl.Execute(w, page)
 }
