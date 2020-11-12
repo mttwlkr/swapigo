@@ -21,3 +21,14 @@ type Starship struct {
 	Edited               string   `json:"edited"`
 	URL                  string   `json:"url"`
 }
+
+// GetStarshipCard returns a SubCard of Starship attributes
+func GetStarshipCard(s Starship) SubCard {
+	return SubCard{
+		Title:     "Name: " + s.Name,
+		SubTitle:  "Manufacturer: " + s.Manufacturer,
+		SubTitle2: "Model: " + s.Model,
+		Body:      "The ship hodls " + s.Crew + " crew & " + s.Passengers + " passengers",
+		URL:       "",
+	}
+}

@@ -80,14 +80,7 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 		page.Cards3Title = "Starships"
 		page.Cards3 = make([]model.SubCard, 0)
 		for _, ship := range starships {
-			fmt.Println("ship.Name", ship.Name)
-			page.Cards3 = append(page.Cards3, model.SubCard{
-				Title:     "Name: " + ship.Name,
-				SubTitle:  "Manufacturer: " + ship.Manufacturer,
-				SubTitle2: "Model: " + ship.Model,
-				Body:      "The ship hodls " + ship.Crew + " crew & " + ship.Passengers + " passengers",
-				URL:       "",
-			})
+			page.Cards3 = append(page.Cards3, model.GetStarshipCard(ship))
 		}
 	}
 
