@@ -25,7 +25,7 @@ func GetSpeciesCard(s Species) SubCard {
 		Title:     "Name: " + s.Name,
 		SubTitle:  "Classification: " + s.Classification,
 		SubTitle2: "Designation: " + s.Designation,
-		Body:      "They are from " + s.Homeworld + " and speak " + s.Language,
+		Body:      "They speak " + s.Language,
 		URL:       "",
 	}
 }
