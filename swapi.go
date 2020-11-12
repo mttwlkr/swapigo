@@ -18,5 +18,6 @@ func main() {
 	http.HandleFunc("/planets", controllers.HandlePlanets)
 	http.HandleFunc("/planet", controllers.HandlePlanet)
 	http.HandleFunc("/films", controllers.HandleFilms)
+	http.HandleFunc("/film", controllers.HandleFilm)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }

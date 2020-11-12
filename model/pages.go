@@ -19,4 +19,8 @@ type DetailPageResponse struct {
 	Cards2Title string
 	Cards3      []SubCard
 	Cards3Title string
+	Cards4      []SubCard
+	Cards4Title string
+	Cards5      []SubCard
+	Cards5Title string
 }
