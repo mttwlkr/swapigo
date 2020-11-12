@@ -59,13 +59,7 @@ func HandlePlanet(w http.ResponseWriter, r *http.Request) {
 		page.Cards2Title = "Residents"
 		page.Cards2 = make([]model.SubCard, 0)
 		for _, resident := range residents {
-			page.Cards2 = append(page.Cards2, model.SubCard{
-				Title:     "Name: " + resident.Name,
-				SubTitle:  "Height: " + resident.Height,
-				SubTitle2: "Mass: " + resident.Mass + " KG",
-				Body:      "Gender: " + resident.Gender,
-				URL:       "/person?id=" + lib.GetIDFromString(resident.URL),
-			})
+			page.Cards2 = append(page.Cards2, model.GetPersonCard(resident))
 		}
 	}
 

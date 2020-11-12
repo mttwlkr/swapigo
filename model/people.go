@@ -47,6 +47,17 @@ func GetInitialPeople(url string, wg *sync.WaitGroup) (PeoplePageResponse, error
 	return page, lib.GetJSONwg(url, &page, wg)
 }
 
+// GetPersonCard returns a SubCard with person values
+func GetPersonCard(p Person) SubCard {
+	return SubCard{
+		Title:     "Name: " + p.Name,
+		SubTitle:  "Height: " + p.Height,
+		SubTitle2: "Mass: " + p.Mass + " KG",
+		Body:      "Gender: " + p.Gender,
+		URL:       "/person?id=" + lib.GetIDFromString(p.URL),
+	}
+}
+
 // GetHomeworld gets a persons homeworld
 func (person Person) GetHomeworld() (Planet, error) {
 	var p Planet

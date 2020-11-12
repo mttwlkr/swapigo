@@ -62,13 +62,7 @@ func HandleVehicle(w http.ResponseWriter, r *http.Request) {
 		page.Cards2Title = "Pilots"
 		page.Cards2 = make([]model.SubCard, 0)
 		for _, pilot := range pilots {
-			page.Cards2 = append(page.Cards2, model.SubCard{
-				Title:     "Name: " + pilot.Name,
-				SubTitle:  "Height: " + pilot.Height,
-				SubTitle2: "Mass: " + pilot.Mass + " KG",
-				Body:      "Gender: " + pilot.Gender,
-				URL:       "/person?id=" + lib.GetIDFromString(pilot.URL),
-			})
+			page.Cards2 = append(page.Cards2, model.GetPersonCard(pilot))
 		}
 	}
 
