@@ -38,13 +38,7 @@ func HandleFilms(w http.ResponseWriter, r *http.Request) {
 
 	page.Cards = make([]model.SubCard, 0)
 	for _, film := range filmsPage.Results {
-		page.Cards = append(page.Cards, model.SubCard{
-			Title:     "Title: " + film.Title,
-			SubTitle:  "Director: " + film.Director,
-			SubTitle2: "Producer: " + film.Producer,
-			Body:      film.OpeningCrawl,
-			URL:       "/film?id=" + lib.GetIDFromString(film.URL),
-		})
+		page.Cards = append(page.Cards, model.GetFilmCard(film))
 	}
 
 	tmpl.Execute(w, page)

@@ -45,13 +45,7 @@ func HandleVehicle(w http.ResponseWriter, r *http.Request) {
 		page.Cards1Title = "Films"
 		page.Cards1 = make([]model.SubCard, 0)
 		for _, film := range films {
-			page.Cards1 = append(page.Cards1, model.SubCard{
-				Title:     "Title: " + film.Title,
-				SubTitle:  "Director: " + film.Director,
-				SubTitle2: "Producer: " + film.Producer,
-				Body:      "Created: " + film.Created,
-				URL:       "",
-			})
+			page.Cards1 = append(page.Cards1, model.GetFilmCard(film))
 		}
 	}
 
