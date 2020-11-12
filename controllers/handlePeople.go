@@ -38,13 +38,7 @@ func HandlePeople(w http.ResponseWriter, r *http.Request) {
 
 	page.Cards = make([]model.SubCard, 0)
 	for _, person := range peoplePage.Results {
-		page.Cards = append(page.Cards, model.SubCard{
-			Title:     "Name: " + person.Name,
-			SubTitle:  "BirthYear: " + person.BirthYear,
-			SubTitle2: "Mass: " + person.Mass,
-			Body:      person.Name + " is a " + person.Gender + " who has " + person.EyeColor + " eyes, " + person.HairColor + " hair and weighs " + person.Mass + " kilograms",
-			URL:       "/person?id=" + lib.GetIDFromString(person.URL),
-		})
+		page.Cards = append(page.Cards, model.GetPersonCard(person))
 	}
 
 	tmpl.Execute(w, page)
