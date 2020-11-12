@@ -48,7 +48,6 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 		vehicleChannel := make(chan []model.Vehicle)
 		go person.GetVehicles(vehicleChannel)
 		vehicles := <-vehicleChannel
-		page.Cards1Title = "Vehicles"
 		page.Cards1 = make([]model.SubCard, 0)
 		for _, vehicle := range vehicles {
 			page.Cards1 = append(page.Cards1, model.GetVehicleCard(vehicle))
